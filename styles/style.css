@@ -219,14 +219,11 @@
 
     .main-content-box:is(.column-rotation) {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .main-content-box:is(.row-rotation) {
         margin-left: 0.5rem;
-    }
-
-    .main-content-box:is(.column-rotation) {
-        gap: 0;
     }
 
     .main-gallery-box {
