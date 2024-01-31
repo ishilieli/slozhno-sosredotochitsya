@@ -10,3 +10,18 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 }
+
+html:has(.header__theme-menu-button_type_dark:disabled) { --darkmode: 1; }
+
+@media (prefers-color-scheme: dark) {
+    html { --darkmode: 1; }
+}
+
+@container root style(--darkmode: 1) {
+    .header-title, .footer-title {
+        color: #DB00FF;
+    }
+    .colored {
+        color: var(--primary-color);
+    }
+}

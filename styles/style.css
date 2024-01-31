@@ -1,5 +1,297 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+:where(html) {
+    --darkmode: 1;
+    container-name: root;
+    container-type: normal;
+}
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+    /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+    background: var(--primary-color) var(--bg-image) center / cover no-repeat;
+    background-attachment: fixed;
+    color: var(--content-color);
+    color-scheme: dark light;
+    font-family: var(--primary-font);
+    padding: 1.25rem;
+    font-size: 1.125rem;
+}
+
+:is([class*=title]) {
+    font-weight: 700;
+    font-size: inherit;
+}
+
+:is(section[class^=main]) {
+    margin-top: 5rem;
+}
+
+:where(.colored) {
+    background: var(--accent-color);
+}
+
+:where(.text-shadow) {
+    text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+:where(.text-shadow-less) {
+    text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.header {
+    position: relative;
+    display: grid;
+    height: calc(100vh - 2.5rem);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
+.header__theme-menu {
+    align-self: start;
+}
+
+.header__theme-menu-list {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.header__theme-menu-button {
+    color: var(--accent-color);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: .125rem .875rem .375rem;
+    line-height: 1;
+    text-transform: lowercase;
+}
+
+.header__theme-menu-button_active {
+    border-color: var(--accent-color);
+}
+
+.header-ornament {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    right: 8px;
+    top: 0;
+}
+
+.header-ornament:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: var(--accent-color);
+    box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.decorated-zone:after, .decorated-zone:before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border: 1px solid var(--accent-color);
+}
+
+.decorated-zone:after {
+    right: 0;
+    top: 0;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.decorated-zone:before {
+    bottom: 0;
+    left: 0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+.header-title, .footer-title {
+    color: var(--accent-color);
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+}
+
+.header-title {
+    margin-left: -1.25rem;
+    line-height: 82.5%;
+}
+
+.header-subtitle {
+    width: max(calc((100% + 2.5rem - 40px) / 2), calc(375px - 1.25rem));
+    justify-self: end;
+    align-self: start;
+    margin-top: 3.5rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(100% / 3 - 1.25rem), 1fr));
+    gap: 1.25rem;
+    line-height: 1.4625rem;
+}
+
+.main-content-box:is(.row-rotation) {
+    grid-column: span 2;
+}
+
+.main-content-box:is(.column-rotation) {
+    grid-column: span 3;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 1.25rem;
+}
+
+.main-content-title {
+    color: var(--accent-color);
+}
+
+.main-content-box .item:not(:last-of-type) {
+    margin-bottom: 1.25rem;
+}
+
+.main-content-box .item-title {
+    margin-bottom: .6rem;
+}
+
+.main-content-box .item-title:is(.thinner) {
+    font-weight: normal;
+}
+
+.main-content-box .item-title:is(.double-margin) {
+    margin-bottom: 1.25rem;
+}
+
+.main-gallery-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(314px, 1fr));
+    gap: 1.25rem;
+}
+
+.main-gallery-box .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.main-gallery-box .col-2 {
+    grid-column-start: span 2;
+}
+
+.main-gallery-box .row-2 {
+    grid-row-start: span 2;
+}
+
+.main-gallery-title {
+    margin-bottom: 1rem;
+}
+
+.footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    height: calc(100vh - 2.5rem);
+    margin-top: 4.5rem;
+}
+
+@media (width <= 769px) {
+    .header__theme-menu {
+        align-self: end;
+        margin-bottom: 3.75rem;
+    }
+
+    .header__theme-menu-list {
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .header-subtitle {
+        margin-top: 2.75rem;
+    }
+
+    .main-content-box:is(.column-rotation) {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content-box:is(.row-rotation) {
+        margin-left: 0.5rem;
+    }
+
+    .main-content-box:is(.column-rotation) {
+        gap: 0;
+    }
+
+    .main-gallery-box {
+        grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
+    }
+
+    .footer {
+        margin-top: 5.5rem;
+    }
+}
+
+@media (width <= 600px) {
+    .page {
+        padding: .625rem;
+    }
+
+    .header {
+        height: calc(100vh - 1.25rem);
+    }
+
+    .header__theme-menu {
+        align-self: center;
+        margin-top: .75rem;
+    }
+
+    .header-title {
+        margin: 0;
+    }
+
+    .header-subtitle {
+        justify-self: auto;
+    }
+
+    :is(section[class^=main]) {
+        margin-top: 3rem;
+    }
+
+    .main-content {
+        column-gap: 0;
+    }
+
+    .main-content, .main-content-box, .main-content-box:is(.column-rotation) {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content-box:is(.row-rotation) {
+        margin-left: 0;
+    }
+
+    .main-content-box .item:not(:last-of-type) {
+        margin-bottom: 1.35rem;
+    }
+
+    .main-gallery-title {
+        margin-bottom: .625rem;
+    }
+
+    .main-gallery-box {
+        display: flex;
+        flex-direction: column;
+        gap: .6rem;
+    }
+
+    .footer {
+        margin-top: 3rem;
+        height: calc(100vh - 1.25rem);
+    }
 }

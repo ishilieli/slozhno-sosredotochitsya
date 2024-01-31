@@ -10,3 +10,24 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 }
+
+html:has(.header__theme-menu-button_type_light:disabled) { --darkmode: 0; }
+
+@media (prefers-color-scheme: light) {
+    html { --darkmode: 0; }
+}
+
+@container root style(--darkmode: 0) {
+    .page {
+        --primary-color: #FFF1F7;
+        --accent-color: #FF8DCB;
+        --content-color: #353430;
+        --bg-image: url('../images/cover-image-light.png');
+    }
+    .header-ornament {
+        display: none;
+    }
+    .header__theme-menu-button {
+        color: var(--content-color);
+    }
+}
