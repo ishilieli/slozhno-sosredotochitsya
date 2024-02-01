@@ -22,11 +22,27 @@ html:has(.header__theme-menu-button_type_dark:disabled) {
 }
 
 @container root style(--darkmode: 1) {
+    a:hover {
+        border-bottom: 1px solid var(--accent-color);
+    }
+
     .header-title, .footer-title {
         color: #DB00FF;
     }
 
     .colored {
         color: var(--primary-color);
+    }
+
+    .header__theme-menu-button {
+        color: var(--accent-color);
+    }
+
+    .header__theme-menu-button:hover {
+        border-color: rgba(255, 0, 112, 0.40);
+    }
+
+    .header__theme-menu-button:focus-visible {
+        border-bottom-color: var(--accent-color);
     }
 }

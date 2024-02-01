@@ -41,4 +41,14 @@ a {
   line-height: inherit;
   cursor: pointer;
   text-decoration: none;
+  transition: all .3s ease;
+  outline: none;
+}
+
+a:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+a:focus-visible {
+  border: 1px solid currentColor;
 }

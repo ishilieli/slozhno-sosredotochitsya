@@ -12,7 +12,6 @@
     color: var(--content-color);
     color-scheme: dark light;
     font-family: var(--primary-font);
-    padding: 1.25rem;
     font-size: 1.125rem;
 }
 
@@ -21,8 +20,9 @@
     font-size: inherit;
 }
 
-:is(section[class^=main]) {
-    margin-top: 5rem;
+:is(section[class^=main]), .footer {
+    margin-top: 2.5rem;
+    padding: 1.25rem;
 }
 
 :where(.colored) {
@@ -38,10 +38,11 @@
 }
 
 .header {
+    padding: 1.25rem;
     position: relative;
     display: grid;
-    height: calc(100vh - 2.5rem);
-    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+    grid-template-rows: 1fr auto 1fr;
     grid-template-columns: 1fr;
     align-items: center;
 }
@@ -57,7 +58,6 @@
 }
 
 .header__theme-menu-button {
-    color: var(--accent-color);
     background: transparent;
     border: 1px solid transparent;
     padding: .125rem .875rem .375rem;
@@ -66,7 +66,11 @@
 }
 
 .header__theme-menu-button_active {
-    border-color: var(--accent-color);
+    border-color: currentColor;
+}
+
+.header__theme-menu-button:focus-visible {
+    border-bottom-color: currentColor;
 }
 
 .header-ornament {
@@ -76,8 +80,8 @@
     gap: .5rem;
     color: var(--accent-color);
     text-transform: uppercase;
-    right: 8px;
-    top: 0;
+    right: 1.75rem;
+    top: 1.25rem;
 }
 
 .header-ornament:after {
@@ -99,22 +103,22 @@
 }
 
 .decorated-zone:after {
-    right: 0;
-    top: 0;
+    right: 1.25rem;
+    top: 1.25rem;
     border-left-color: transparent;
     border-bottom-color: transparent;
 }
 
 .decorated-zone:before {
-    bottom: 0;
-    left: 0;
+    bottom: 1.25rem;
+    left: 1.25rem;
     border-right-color: transparent;
     border-top-color: transparent;
 }
 
 .header-title, .footer-title {
     color: var(--accent-color);
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: clamp(7.25rem, 0.5625rem + 14.4531vw, 9.8125rem);
 }
 
 .header-title {
@@ -125,8 +129,6 @@
 .header-subtitle {
     width: max(calc((100% + 2.5rem - 40px) / 2), calc(375px - 1.25rem));
     justify-self: end;
-    align-self: start;
-    margin-top: 3.5rem;
 }
 
 .main-content {
@@ -169,7 +171,7 @@
 
 .main-gallery-box {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(314px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
 }
 
@@ -181,16 +183,16 @@
     display: block;
 }
 
-.main-gallery-box .col-2 {
+.main-gallery-box .col-longer {
     grid-column-start: span 2;
 }
 
-.main-gallery-box .row-2 {
+.main-gallery-box .row-longer {
     grid-row-start: span 2;
 }
 
 .main-gallery-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .footer {
@@ -198,23 +200,17 @@
     display: flex;
     align-items: center;
     place-content: center;
-    height: calc(100vh - 2.5rem);
-    margin-top: 4.5rem;
+    height: 100vh;
 }
 
-@media (width <= 769px) {
+@media (width < 1024px) {
     .header__theme-menu {
-        align-self: end;
-        margin-bottom: 3.75rem;
+        align-self: center;
     }
 
     .header__theme-menu-list {
         flex-direction: column;
         align-items: end;
-    }
-
-    .header-subtitle {
-        margin-top: 2.75rem;
     }
 
     .main-content-box:is(.column-rotation) {
@@ -225,28 +221,26 @@
     .main-content-box:is(.row-rotation) {
         margin-left: 0.5rem;
     }
-
-    .main-gallery-box {
-        grid-template-columns: repeat(auto-fit, minmax(229px, 1fr));
-    }
-
-    .footer {
-        margin-top: 5.5rem;
-    }
 }
 
-@media (width <= 600px) {
-    .page {
+@media (width < 768px) {
+    .header {
         padding: .625rem;
     }
 
-    .header {
-        height: calc(100vh - 1.25rem);
+    .decorated-zone:after {
+        right: .625rem;
+        top: .625rem;
     }
 
-    .header__theme-menu {
-        align-self: center;
-        margin-top: .75rem;
+    .decorated-zone:before {
+        bottom: .625rem;
+        left: .625rem;
+    }
+
+    .header-ornament {
+        right: 1.25rem;
+        top: 0.75rem;
     }
 
     .header-title {
@@ -257,8 +251,9 @@
         justify-self: auto;
     }
 
-    :is(section[class^=main]) {
-        margin-top: 3rem;
+    :is(section[class^=main]), .footer {
+        margin-top: 1.75rem;
+        padding: .625rem;
     }
 
     .main-content {
@@ -285,10 +280,5 @@
         display: flex;
         flex-direction: column;
         gap: .6rem;
-    }
-
-    .footer {
-        margin-top: 3rem;
-        height: calc(100vh - 1.25rem);
     }
 }

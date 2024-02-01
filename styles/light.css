@@ -29,11 +29,23 @@ html:has(.header__theme-menu-button_type_light:disabled) {
         --bg-image: url('../images/cover-image-light.png');
     }
 
+    .header-title, .footer-title {
+        color: #FFC2E6;
+    }
+
+    .header-title {
+        text-shadow: 4px 4px 0 #FF0070;
+    }
+
+    .footer-title {
+        text-shadow: 2px 2px 0 #FF0070;
+    }
+
     .header-ornament {
         display: none;
     }
 
-    .header__theme-menu-button {
-        color: var(--content-color);
+    .header__theme-menu-button:hover {
+        border-color: rgba(50, 49, 45, 0.40);
     }
 }
