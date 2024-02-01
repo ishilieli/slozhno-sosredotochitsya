@@ -22,11 +22,7 @@ html:has(.header__theme-menu-button_type_dark:disabled) {
 }
 
 @container root style(--darkmode: 1) {
-    a:hover {
-        border-bottom: 1px solid var(--accent-color);
-    }
-
-    .header-title, .footer-title {
+    .header-title {
         color: #DB00FF;
     }
 
@@ -38,11 +34,15 @@ html:has(.header__theme-menu-button_type_dark:disabled) {
         color: var(--accent-color);
     }
 
-    .header__theme-menu-button:hover {
+    .header__theme-menu-button:not(:disabled):hover {
         border-color: rgba(255, 0, 112, 0.40);
     }
 
     .header__theme-menu-button:focus-visible {
         border-bottom-color: var(--accent-color);
+    }
+
+    .footer-title {
+        color: #DB00FF;
     }
 }

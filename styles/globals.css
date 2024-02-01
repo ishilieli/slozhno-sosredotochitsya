@@ -39,10 +39,13 @@ a {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  cursor: pointer;
   text-decoration: none;
   transition: all .3s ease;
   outline: none;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
 }
 
 a:hover {

@@ -29,23 +29,33 @@ html:has(.header__theme-menu-button_type_light:disabled) {
         --bg-image: url('../images/cover-image-light.png');
     }
 
-    .header-title, .footer-title {
-        color: #FFC2E6;
+    .decorated-zone:after {
+        border-color: var(--content-color);
+    }
+
+    .decorated-zone:before {
+        border-color: var(--content-color);
     }
 
     .header-title {
+        color: #FFC2E6;
         text-shadow: 4px 4px 0 #FF0070;
     }
 
     .footer-title {
         text-shadow: 2px 2px 0 #FF0070;
+        color: #FFC2E6;
     }
 
     .header-ornament {
         display: none;
     }
 
-    .header__theme-menu-button:hover {
+    .header__theme-menu-button:not(:disabled):hover {
         border-color: rgba(50, 49, 45, 0.40);
+    }
+
+    .main-content-title {
+        color: var(--content-color);
     }
 }
