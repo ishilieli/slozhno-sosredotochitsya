@@ -262,9 +262,6 @@
 
     .main-content {
         column-gap: 0;
-    }
-
-    .main-content {
         grid-template-columns: 1fr;
     }
 
