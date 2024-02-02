@@ -169,7 +169,7 @@
 .main-gallery-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: calc(var(--main-gap) / 3);
+    gap: var(--main-gap);
 }
 
 .main-gallery-box .img {
