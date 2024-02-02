@@ -264,7 +264,15 @@
         column-gap: 0;
     }
 
-    .main-content, .main-content-box, .main-content-box:is(.column-rotation) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content-box {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content-box:is(.column-rotation) {
         grid-template-columns: 1fr;
     }
 
